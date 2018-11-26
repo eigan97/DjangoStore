@@ -1,0 +1,2 @@
+# djangoStore
+Taller Django

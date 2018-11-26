@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title%}Home{% endblock %}
+
+{% block content %}	
+	  <section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Compra</h2>
+        <hr class="star-light mb-5">
+        <div class="row" style="display: flex; justify-content: center; ">
+          <p class="lead">Tu compra se ha realizado con exito.</p>
+        </div>
+        <div class="text-center mt-4">
+          <a class="btn btn-xl btn-outline-light" href="{%url 'home'%}">
+            Regresar!
+          </a>
+        </div>
+      </div>
+    </section>
+{% endblock %}

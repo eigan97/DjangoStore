@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title%}Comprar{% endblock %}
+
+{% block content%}
+<br>
+<br>
+<section class="portfolio" id="portfolio">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Productos</h2>
+        <hr class="star-dark mb-5">
+        <a class="btn btn-success" href="{% url 'add_product_submit' %}">
+            <i class="fas fa-download mr-2"></i>
+            Agregar Producto
+          </a>
+          <br>
+          <br>
+       <div class="row">
+          <div class="card" style="width: 100%;">
+              <ul class="list-group list-group-flush" >
+                {% for producto in productos %}
+                <li class="list-group-item" style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <span>{{producto.nombre}}</span> 
+                  <span>
+                    <a style="color:#DD5043;" href="{%url 'eliminar_producto' producto.id %}"><i class="fas fa-trash"></i> Eliminar</a>
+                    <a style="margin-left:10px;"href="{%url 'editar_producto' producto.id %}"><i class="fas fa-pencil-alt"></i> Editar</a>
+                  </span>
+                </li>
+                {%empty%}
+                  <li class="list-group-item"> No hay productos</li>
+                {%endfor%}
+                  
+              </ul>
+            </div>
+   </div>
+      </div>
+    </section>
+
+{% endblock%}

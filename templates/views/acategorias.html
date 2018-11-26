@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title%}Comprar{% endblock %}
+
+{% block content%}
+<br>
+<br>
+<section class="portfolio" id="portfolio">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Categorias</h2>
+        <hr class="star-dark mb-5">
+        <a class="btn btn-success" href="{% url 'add_categorias_submit' %}">
+          <i class="fas fa-download mr-2"></i>
+          Agregar Categoria
+        </a>
+        <br>
+        <br>
+       <div class="row">
+          <div class="card" style="width: 100%;">
+              <ul class="list-group list-group-flush">
+                 {% for categoria in categorias %}
+                <li class="list-group-item" style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <span>{{categoria.nombre}}</span> 
+                  <span>
+                    <a style="color:#DD5043;" href="{%url 'eliminar_categoria' categoria.id %}"><i class="fas fa-trash"></i> Eliminar</a>
+                    <a style="margin-left:10px;"href="{%url 'editar_categoria' categoria.id %}"><i class="fas fa-pencil-alt"></i> Ediar</a>
+                  </span>
+                </li>
+                {%empty%}
+                  <li class="list-group-item"> No hay categorias</li>
+                {%endfor%}
+              </ul>
+            </div>
+   </div>
+      </div>
+    </section>
+
+{% endblock%}
